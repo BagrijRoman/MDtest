@@ -18,7 +18,7 @@ const initCollectionData = async (collection: Model<any>, initialData: { _id: Ty
       return;
     }
 
-    console.log('collection ', collection);
+    logger.info(`Init data for: ${collection}`);
 
     const existingRecordsCount = await collection.countDocuments({});
     const docsToAdd = [];

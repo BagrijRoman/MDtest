@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "tsbuild": "npx tsc",
     "dev": "concurrently \"npx tsc --watch\" \"ENV_TYPE='development' nodemon -q ./tsBuild/index.js\"",
     "initDb": "npx ts-node initDb/index.ts"
   },
