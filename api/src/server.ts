@@ -9,6 +9,7 @@ import {
   testRouter,
   authRouter,
   countriesRouter,
+  userRouter
 } from './routers';
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(verifyJWT);
 app.use('/test', testRouter);
 app.use('/auth', authRouter);
 app.use('/countries', countriesRouter);
+app.use('/user', userRouter);
 
 app.listen(port, () => {
   logger.info(`Listening on port ${port}`);
