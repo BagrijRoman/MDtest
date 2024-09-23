@@ -49,7 +49,6 @@ export const loginController = async (req: RequestWithUserData, res: Response) =
     });
   } catch (err) {
     if (err instanceof Error) {
-      logger.error(`Login user error.  ${err.toString()}`);
       handleApiError(res, STATUS_CODES.INTERNAL_SERVER_ERROR, { err: err.toString() });
     }
   }
