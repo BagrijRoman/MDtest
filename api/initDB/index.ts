@@ -18,8 +18,6 @@ const initCollectionData = async (collection: Model<any>, initialData: { _id: Ty
       return;
     }
 
-    logger.info(`Init data for: ${collection}`);
-
     const existingRecordsCount = await collection.countDocuments({});
     const docsToAdd = [];
 
@@ -40,7 +38,9 @@ const initCollectionData = async (collection: Model<any>, initialData: { _id: Ty
       await collection.insertMany(docsToAdd);
     }
   } catch (err) {
-    logger.error(`Init collection data error: ${collection}.  Details: ${err.toString()} `);
+    if (err instanceof Error) {
+      logger.error(`Init collection data error: ${err.toString()} `);
+    }
   }
 }
 
