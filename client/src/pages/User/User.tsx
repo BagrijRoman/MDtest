@@ -1,9 +1,9 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import Table from 'react-bootstrap/Table';
-import Accordion from 'react-bootstrap/Accordion';
+import React from "react";
+import { useParams } from "react-router-dom";
+import Table from "react-bootstrap/Table";
+import Accordion from "react-bootstrap/Accordion";
 
-import useUserById from '../../hook/useUserById';
+import useUserById from "../../hook/useUserById";
 
 const User = () => {
   const { id } = useParams();
@@ -81,7 +81,7 @@ const User = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
 export default User;

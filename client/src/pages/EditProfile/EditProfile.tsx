@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Button } from "react-bootstrap";
 
-import { IFormData } from './EditProfileContainer';
-import './editProfile.scss';
+import { IFormData } from "./EditProfileContainer";
+import "./editProfile.scss";
 
 interface IEditProfileProps {
   onFormSubmit: (event: React.FormEvent) => void;
@@ -22,7 +22,7 @@ export const EditProfile = (props: IEditProfileProps) => {
   } = props;
 
   return (
-    <div className='edit-profile-form-container'>
+    <div className="edit-profile-form-container">
       <Form onSubmit={ onFormSubmit } className="edit-profile-form">
         <fieldset disabled={disabled}>
           <Form.Group controlId="formCountryId">
@@ -110,4 +110,4 @@ export const EditProfile = (props: IEditProfileProps) => {
       </Form>
     </div>
 );
-}
+};

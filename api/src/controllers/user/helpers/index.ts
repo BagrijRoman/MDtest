@@ -1,1 +1,1 @@
-export { getUserProfileDetails } from './getUserProfileDetails';
+export { getUserProfileDetails } from "./getUserProfileDetails";

@@ -1,7 +1,7 @@
-import { Types } from 'mongoose';
+import { Types } from "mongoose";
 
-import { logger } from '../../../utils';
-import { UserDetails } from '../../../models';
+import { logger } from "../../../utils";
+import { UserDetails } from "../../../models";
 
 export const getUserProfileDetails = async (userId: Types.ObjectId ) => {
   try {
@@ -21,4 +21,4 @@ export const getUserProfileDetails = async (userId: Types.ObjectId ) => {
       throw err;
     }
   }
-}
+};

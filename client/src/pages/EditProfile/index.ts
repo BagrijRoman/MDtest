@@ -1,1 +1,1 @@
-export { EditProfileContainer as EditProfile } from './EditProfileContainer';
+export { EditProfileContainer as EditProfile } from "./EditProfileContainer";

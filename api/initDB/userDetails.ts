@@ -1,4 +1,4 @@
-import { Types } from 'mongoose';
+import { Types } from "mongoose";
 
 type TUserDetailsData = {
   _id: Types.ObjectId,

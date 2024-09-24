@@ -1,10 +1,10 @@
 import { Response } from "express";
-import mongoose, { Types } from 'mongoose';
+import mongoose, { Types } from "mongoose";
 
 import { RequestWithUserData } from "../../types";
 import { handleApiError, validateByRules } from "../../helpers";
 import { STATUS_CODES, VALIDATOR_RULES } from "../../const";
-import { Users, UserDetails, Countries } from '../../models';
+import { Users, UserDetails, Countries } from "../../models";
 import { getUserProfileDetails } from "./helpers";
 
 export const updateUserProfileController = async (req: RequestWithUserData, res: Response) => {
@@ -22,7 +22,7 @@ export const updateUserProfileController = async (req: RequestWithUserData, res:
         middleName,
         address,
         extraInfo,
-      }
+      },
     } = req;
 
     const userRecordUpdates = {};
@@ -45,11 +45,11 @@ export const updateUserProfileController = async (req: RequestWithUserData, res:
     middleName && Object.assign(userRecordUpdates, { middleName });
 
     if (Object.keys(userRecordUpdates).length) {
-      await Users.updateOne({ _id: user._id }, userRecordUpdates, { session })
+      await Users.updateOne({ _id: user._id }, userRecordUpdates, { session });
     }
 
     if (countryId) {
-      const countryData = await Countries.findOne({ _id: new Types.ObjectId(countryId) })
+      const countryData = await Countries.findOne({ _id: new Types.ObjectId(countryId) });
 
       if (!countryData) {
         return handleApiError(res, STATUS_CODES.UNPROCESSABLE_ENTITY, { err: "Invalid countryId provided" });
@@ -78,4 +78,4 @@ export const updateUserProfileController = async (req: RequestWithUserData, res:
   } finally {
     session.endSession();
   }
-}
+};

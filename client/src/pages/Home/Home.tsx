@@ -1,8 +1,8 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
-import { useAuth } from '../../hook/useAuth';
+import { useAuth } from "../../hook/useAuth";
 
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div>
-      <p>Hello, { user ? user.name : 'User' }!</p>
+      <p>Hello, { user ? user.name : "User" }!</p>
       {user ? <div>
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>

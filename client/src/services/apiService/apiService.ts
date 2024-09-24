@@ -29,7 +29,7 @@ class ApiService extends ApiBase {
   getCurrentUserProfile = async () => this.requestWithAuth({
     url: apiEndpoints.userProfile,
     method: requestMethods.GET,
-  })
+  });
 
   updateCurrentUserProfile = async (data: {
     countryId?: string,
@@ -42,7 +42,7 @@ class ApiService extends ApiBase {
     url: apiEndpoints.userProfile,
     method: requestMethods.PATCH,
     body: data,
-  })
+  });
 }
 
 export { ApiService };

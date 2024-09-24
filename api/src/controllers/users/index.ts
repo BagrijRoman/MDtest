@@ -1,2 +1,2 @@
-export { getAllUsersController } from './getAllUsersController';
-export { getUserController } from './getUserController';
+export { getAllUsersController } from "./getAllUsersController";
+export { getUserController } from "./getUserController";

@@ -1,13 +1,13 @@
 import React, { useCallback } from "react";
-import { NavLink, Outlet } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-import { Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavLink, Outlet } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-import { useAuth } from '../../hook';
-import { ApiService } from '../../services';
+import { useAuth } from "../../hook";
+import { ApiService } from "../../services";
 
-import './layout.scss';
+import "./layout.scss";
 
 const Layout = () => {
   const { user, signOut } = useAuth();
@@ -49,7 +49,7 @@ const Layout = () => {
 
       <footer>MDtest 2024</footer>
     </>
-  )
-}
+  );
+};
 
 export default Layout;

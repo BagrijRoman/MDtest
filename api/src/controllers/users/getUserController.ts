@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Types } from "mongoose";
 
 import { logger } from "../../utils";
-import { UserDetails } from '../../models';
+import { UserDetails } from "../../models";
 import { handleApiError } from "../../helpers";
 import { STATUS_CODES } from "../../const";
 import { getUserProfileDetails } from "../user/helpers";
@@ -25,7 +25,7 @@ export const getUsersData = async () => {
       throw err;
     }
   }
-}
+};
 
 export const getUserController = async (req: Request, res: Response) => {
   try {
