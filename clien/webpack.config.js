@@ -11,6 +11,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.m?js$/,
+        resolve: {
+          fullySpecified: false
+        },
+      },
+      {
         test: /\.(js|ts)x?$/,
         exclude: /node_modules/,
         use: ["babel-loader"],
@@ -34,7 +40,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".jsx"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     fallback: {
       crypto: require.resolve("crypto-browserify"),
       stream: require.resolve("stream-browserify"),
@@ -43,6 +49,10 @@ module.exports = {
       https: require.resolve("https-browserify"),
       os: require.resolve("os-browserify"),
       url: require.resolve("url"),
+      buffer: require.resolve('buffer/'),
+      vm: require.resolve('vm-browserify'),
+      util: require.resolve('util/'),
+      process: require.resolve('process/browser'),
     },
   },
   output: {
@@ -57,8 +67,9 @@ module.exports = {
       favicon: "./public/favicon.ico",
     }),
     new webpack.ProvidePlugin({
-      process: "process/browser",
-    }),
+      process: 'process/browser',
+      Buffer: ['buffer', 'Buffer'],
+    })
   ],
   devServer: {
     static: "./dist",
