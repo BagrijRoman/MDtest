@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 
@@ -9,7 +10,7 @@ describe('NotFound page renders properly', () => {
     const linkElement = screen.getByRole('link');
 
     expect(linkElement).toHaveTextContent('home');
-    expect(linkElement).toHaveAttribute('href', '/');
+    expect(linkElement).toHaveAttribute('href', '/a');
   });
 
   test('Contains react image', () => {

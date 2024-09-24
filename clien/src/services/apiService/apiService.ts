@@ -12,6 +12,16 @@ class ApiService extends ApiBase {
     url: apiEndpoints.test,
     method: requestMethods.GET,
   });
+
+  getAllUsers = async () => this.request({
+    url: apiEndpoints.getAllUsers,
+    method: requestMethods.GET,
+  });
+
+  getUser = async (userId: string) => this.request({
+    url: `${apiEndpoints.getUser}${userId}`,
+    method: requestMethods.GET,
+  });
 }
 
 export { ApiService };
