@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "y",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -51,5 +51,9 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/lodash": "^4.17.9"
   },
-  "proxy": "http://localhost:4000"
+  "proxy": "http://localhost:4000",
+  "description": "In the project directory, you can run:",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
