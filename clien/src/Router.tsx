@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
-import { Home, Login, NotFound, User, UsersList } from "./pages";
+import { Home, Login, NotFound, User, UsersList, EditProfile } from "./pages";
 import { RequireAuth } from "./hoc/RequireAuth";
 import { ApiService } from './services';
 import { useAuth } from './hook/useAuth';
@@ -36,6 +36,12 @@ export const Router = () => {
         <Route path="user/:id" element={
           <RequireAuth>
             <User />
+          </RequireAuth>
+        } />
+
+        <Route path="edit-profile" element={
+          <RequireAuth>
+            <EditProfile/>
           </RequireAuth>
         } />
 

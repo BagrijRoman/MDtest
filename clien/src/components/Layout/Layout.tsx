@@ -28,6 +28,7 @@ const Layout = () => {
           </Navbar.Brand>
           <NavLink to="/" className="nav-section-item">Home</NavLink>
           <NavLink to="/users" className="nav-section-item">Users List</NavLink>
+          <NavLink to="/edit-profile" className="nav-section-item">Edit profile</NavLink>
         </div>
 
         {user ? (
