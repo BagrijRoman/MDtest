@@ -1,1 +1,1 @@
-export { default as Login } from './Login';
+export { LoginContainer as Login } from './LoginContainer';
