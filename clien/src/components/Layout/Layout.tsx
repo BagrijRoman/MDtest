@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { NavLink, Outlet } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { useAuth } from '../../hook';
@@ -28,6 +28,7 @@ const Layout = () => {
           </Navbar.Brand>
           <NavLink to="/" className="nav-section-item">Home</NavLink>
           <NavLink to="/users" className="nav-section-item">Users List</NavLink>
+          <NavLink to="/edit-profile" className="nav-section-item">Edit profile</NavLink>
         </div>
 
         {user ? (

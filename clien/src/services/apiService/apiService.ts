@@ -6,8 +6,6 @@ class ApiService extends ApiBase {
     super(config);
   }
 
-  // api request methods will be here
-
   apiTest = async () => this.request({
     url: apiEndpoints.test,
     method: requestMethods.GET,
@@ -19,9 +17,32 @@ class ApiService extends ApiBase {
   });
 
   getUser = async (userId: string) => this.requestWithAuth({
-    url: `${apiEndpoints.getUser}${userId}`,
+    url: `${ apiEndpoints.getUser }${ userId }`,
     method: requestMethods.GET,
   });
+
+  getCountriesList = async () => this.requestWithAuth({
+    url: apiEndpoints.countries,
+    method: requestMethods.GET,
+  });
+
+  getCurrentUserProfile = async () => this.requestWithAuth({
+    url: apiEndpoints.userProfile,
+    method: requestMethods.GET,
+  })
+
+  updateCurrentUserProfile = async (data: {
+    countryId?: string,
+    firstName?: string,
+    middleName?: string,
+    lastName?: string,
+    address?: string,
+    extraInfo?: string,
+  }) => this.requestWithAuth({
+    url: apiEndpoints.userProfile,
+    method: requestMethods.PATCH,
+    body: data,
+  })
 }
 
 export { ApiService };

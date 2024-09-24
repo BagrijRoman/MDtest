@@ -15,22 +15,6 @@ countriesRouter.use(requireAuth as ExpressMiddlewareFnType);
  *     tags:
  *       - Countries
  *     summary: Get countries list paginated
- *     parameters:
- *       - in: query
- *         name: offset
- *         schema:
- *           type: integer
- *           min: 0
- *           default: 0
- *         description: The number of items to skip
- *       - in: query
- *         name: limit
- *         schema:
- *           type: integer
- *           min: 1
- *           max: 100
- *           default: 20
- *         description: The number of items to return per page
  *     responses:
  *       200:
  *         description: Ok
