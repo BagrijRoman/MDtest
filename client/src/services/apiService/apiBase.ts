@@ -10,7 +10,7 @@ export type TApiBaseConstructorConfig = {
   logOutCb?: () => void;
 };
 
-type TSignInData = {
+type TsignInData = {
   accessToken: string;
   refreshToken: string;
   user: object;
@@ -123,7 +123,7 @@ class ApiBase extends TokenService {
     const { status, data } = response;
 
     if (status === httpStatus.OK) {
-      this.processSignInData(data);
+      this.processsignInData(data);
       return response;
     }
 
@@ -148,7 +148,7 @@ class ApiBase extends TokenService {
     }
   };
 
-  processSignInData = (data: TSignInData) => {
+  processsignInData = (data: TsignInData) => {
     const { accessToken, refreshToken } = data;
     this.storeTokens({ accessToken, refreshToken });
   };
@@ -162,7 +162,7 @@ class ApiBase extends TokenService {
         options: {},
       });
 
-      this.processSignInData(data);
+      this.processsignInData(data);
 
       return {
         success: status === httpStatus.OK,

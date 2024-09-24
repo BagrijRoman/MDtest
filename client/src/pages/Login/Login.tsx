@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
 import { useAuth } from '../../hook/useAuth';
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { signin } = useAuth();
+  const { user, signIn } = useAuth();
+
   const fromPage = location.state?.from?.pathname || '/';
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+
+  const redirectToFromPage = useCallback(() => {
+    navigate(fromPage, { replace: true })
+  }, [ fromPage ]);
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = useCallback((event) => {
     event.preventDefault();
     const form = event.currentTarget;
     const user = { name: form.username.value, password: form.password.value };
-    signin(user, () => navigate(fromPage, { replace: true }));
-  };
+    signIn(user, () => redirectToFromPage);
+  }, [redirectToFromPage]);
+
+  useEffect(() => {
+    if (!!user) {
+      redirectToFromPage();
+    }
+  }, [user, redirectToFromPage]);
 
   return (
     <div>
