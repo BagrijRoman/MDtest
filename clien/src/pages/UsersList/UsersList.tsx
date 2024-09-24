@@ -13,7 +13,7 @@ const UsersList = () => {
       <h4>Users List:</h4>
       {!!users?.length && (
         <ListGroup>
-          {users.map(user => <UserItem key={user._id} user={user} />)}
+          {users.map(user => <UserItem key={user._id} user={user.user} />)}
         </ListGroup>
       )}
     </div>

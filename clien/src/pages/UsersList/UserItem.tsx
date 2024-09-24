@@ -2,11 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const UserItem = (props: any) => {
+import { IUserDetails } from '../../types/IUser';
+
+const UserItem = ({ user }: { user: IUserDetails }) => {
   const navigate = useNavigate();
-  const { firstName, lastName } = props.user.user;
+  const { firstName, lastName } = user;
   const userName = `${firstName} ${lastName}`;
-  const onClick = () => navigate(`/user/${props.user.user._id}`);
+  const onClick = () => navigate(`/user/${user._id}`);
 
   return (
     <ListGroup.Item action onClick={onClick}>

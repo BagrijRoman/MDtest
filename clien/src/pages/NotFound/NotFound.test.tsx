@@ -10,7 +10,7 @@ describe('NotFound page renders properly', () => {
     const linkElement = screen.getByRole('link');
 
     expect(linkElement).toHaveTextContent('home');
-    expect(linkElement).toHaveAttribute('href', '/a');
+    expect(linkElement).toHaveAttribute('href', '/');
   });
 
   test('Contains react image', () => {
