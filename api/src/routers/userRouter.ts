@@ -32,7 +32,6 @@ userRouter.use(requireAuth as ExpressMiddlewareFnType);
 
 userRouter.get('/profile', getUserProfileController as ExpressMiddlewareFnType);
 
-<<<<<<< HEAD
 /**
  * @openapi
  * '/user/profile':
