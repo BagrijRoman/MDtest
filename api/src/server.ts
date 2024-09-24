@@ -9,7 +9,8 @@ import {
   testRouter,
   authRouter,
   countriesRouter,
-  userRouter
+  userRouter,
+  usersRouter,
 } from './routers';
 
 const app = express();
@@ -26,6 +27,7 @@ app.use('/test', testRouter);
 app.use('/auth', authRouter);
 app.use('/countries', countriesRouter);
 app.use('/user', userRouter);
+app.use('/users', usersRouter);
 
 app.listen(port, () => {
   logger.info(`Listening on port ${port}`);
