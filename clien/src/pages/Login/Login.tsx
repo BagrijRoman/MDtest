@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 
 import { ISignInFormData } from './LoginContainer';
+import './login.scss';
 
 interface ILoginProps {
   onSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void>;
@@ -19,9 +20,9 @@ export const Login = (props: ILoginProps) => {
   } = props;
 
   return (
-    <Container>
-      <h3>Login </h3>
-      <Form onSubmit={onSubmit}>
+    <Container className="login-container" >
+      <h3 className="login-header-label">Login </h3>
+      <Form onSubmit={onSubmit} className="login-form">
         <Form.Group>
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -52,8 +53,10 @@ export const Login = (props: ILoginProps) => {
           variant="primary"
           type="submit"
           disabled={!!loginLoading}
+          className="login-button"
+          size="sm"
         >
-          {loginLoading ? 'Loading…' : 'Sign In'}
+          {loginLoading ? 'Loading…' : 'Login'}
         </Button>
       </Form>
     </Container>
