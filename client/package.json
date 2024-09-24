@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "y",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +10,11 @@
     "@types/node": "^16.18.108",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
+    "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
+    "buffer": "^6.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
@@ -43,7 +47,13 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/lodash": "^4.17.9"
   },
-  "proxy": "http://localhost:4000"
+  "proxy": "http://localhost:4000",
+  "description": "In the project directory, you can run:",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

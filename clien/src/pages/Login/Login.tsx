@@ -4,6 +4,7 @@ import { Form, Button, Container } from 'react-bootstrap';
 
 import { useAuth } from '../../hook/useAuth';
 import { ApiService } from '../../services';
+import { httpStatus } from "../../const";
 
 interface ISignInFormData {
   email: string;
@@ -37,40 +38,23 @@ const Login = () => {
   const onDataChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  }, []);
+  }, [formData]);
 
   const onSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log('Form submitted:', formData);
-
     try {
       setLoginLoading(true);
-
-      const {} = await ApiService.login({ email: '', password: '' })
-
+      const { status, user } = await ApiService.login({ email: formData.email, password: formData.password });
+      if (status === httpStatus.OK && user) {
+        signIn(user, () => redirectToFromPage);
+      }
     } catch (err) {
-
+      // tot add error notification here
     } finally {
       setLoginLoading(false);
     }
-  }, []);
-
-
-
-
-
-
-  // const handleSubmit: React.FormEventHandler<HTMLFormElement> = useCallback(async (event) => {
-  //   event.preventDefault();
-  //   const form = event.currentTarget;
-  //   const email = form.username.value;
-  //   const password = form.password.value;
-  //
-  //   const user = { name: form.username.value, password: form.password.value };
-  //   signIn(user, () => redirectToFromPage);
-  // }, [redirectToFromPage]);
-
+  }, [formData]);
 
   return (
     <Container>
@@ -112,29 +96,6 @@ const Login = () => {
       </Form>
     </Container>
   );
-
-
-
-
-  // return (
-  //   <div>
-  //     <h1>Login page</h1>
-  //     <form className="authorization" onSubmit={handleSubmit}>
-  //       <Form.Label htmlFor="inputPassword5">Password</Form.Label>
-  //       <Form.Control
-  //         type="password"
-  //         id="inputPassword5"
-  //         aria-describedby="passwordHelpBlock"
-  //       />
-  //       <label>
-  //         Password: <input type="password" name="password" disabled={loginLoading}/>
-  //       </label>
-  //       <Button type="submit" disabled={loginLoading}>
-  //         {loginLoading ? 'Loading…' : 'Login'}
-  //       </Button>
-  //     </form>
-  //   </div>
-  // )
 };
 
 export default Login;

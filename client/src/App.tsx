@@ -31,6 +31,7 @@ const App = () => (
               <User />
             </RequireAuth>
           } />
+
           <Route path="login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Route>
