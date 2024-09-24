@@ -5,6 +5,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { useAuth } from '../../hook';
+import { ApiService } from '../../services';
 
 import './layout.scss';
 
@@ -13,6 +14,7 @@ const Layout = () => {
 
   const onLogoutClick = useCallback(() => {
     if (user) {
+      ApiService.logOut();
       signOut();
     }
   },[user, signOut]);
