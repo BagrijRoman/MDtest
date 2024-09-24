@@ -28,6 +28,8 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+
+
         <Route path="users" element={
           <RequireAuth>
             <UsersList />
@@ -38,7 +40,6 @@ export const Router = () => {
             <User />
           </RequireAuth>
         } />
-
         <Route path="edit-profile" element={
           <RequireAuth>
             <EditProfile/>

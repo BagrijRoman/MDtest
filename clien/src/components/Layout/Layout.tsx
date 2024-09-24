@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { NavLink, Outlet } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { useAuth } from '../../hook';

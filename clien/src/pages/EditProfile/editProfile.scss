@@ -1,0 +1,16 @@
+.edit-profile-form-container {
+  .edit-profile-form {
+    max-width: 600px;
+    margin: auto;
+
+    label.form-label {
+      margin-bottom: 4px;
+      display: flex;
+      margin-top: 15px;
+    }
+
+    .update-profile-btn {
+      width: 100%;
+    }
+  }
+}
