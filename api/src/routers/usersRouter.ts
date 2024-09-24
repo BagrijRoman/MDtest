@@ -30,7 +30,7 @@ usersRouter.use(requireAuth as ExpressMiddlewareFnType);
  * */
 
 
-usersRouter.get('/all', getAllUsersController as ExpressMiddlewareFnType);
+usersRouter.get("/all", getAllUsersController as ExpressMiddlewareFnType);
 
 /**
  * @openapi
@@ -51,4 +51,4 @@ usersRouter.get('/all', getAllUsersController as ExpressMiddlewareFnType);
  * */
 
 
-usersRouter.get('/:id', getUserController as ExpressMiddlewareFnType);
+usersRouter.get("/:id", getUserController as ExpressMiddlewareFnType);

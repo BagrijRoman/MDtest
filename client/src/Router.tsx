@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 import { Home, Login, NotFound, User, UsersList, EditProfile } from "./pages";
 import { RequireAuth } from "./hoc/RequireAuth";
-import { ApiService } from './services';
-import { useAuth } from './hook/useAuth';
+import { ApiService } from "./services";
+import { useAuth } from "./hook/useAuth";
 
 export const Router = () => {
   const { user, signIn } = useAuth();
@@ -18,7 +18,7 @@ export const Router = () => {
         signIn(apiUser);
       }
     }
-  }
+  };
 
   useEffect(() => {
     checkAuth();

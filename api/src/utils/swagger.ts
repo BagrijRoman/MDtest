@@ -3,6 +3,8 @@ import path from "path";
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
+import { logger } from "../utils";
+
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
@@ -53,5 +55,6 @@ export const initSwaggerDocs = (app: Express, port: number) => {
     res.send(swaggerSpec);
   });
 
-  console.log(`Docs available at http://localhost:${port}/docs`);
+
+  logger.info(`Docs available at http://localhost:${port}/docs`);
 };

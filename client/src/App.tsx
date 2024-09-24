@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { AuthProvider } from './hoc/AuthProvider';
-import { Router } from './Router';
+import { AuthProvider } from "./hoc/AuthProvider";
+import { Router } from "./Router";
 
-import './App.scss';
+import "./App.scss";
 
 const App = () => (
   <div className="md">

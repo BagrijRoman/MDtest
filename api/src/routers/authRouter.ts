@@ -1,7 +1,7 @@
 import express from "express";
 
-import { loginController, refreshTokensController } from '../controllers';
-import { ExpressMiddlewareFnType } from '../types';
+import { loginController, refreshTokensController } from "../controllers";
+import { ExpressMiddlewareFnType } from "../types";
 
 export const authRouter = express.Router();
 

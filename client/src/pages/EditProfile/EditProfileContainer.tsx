@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from "react";
 
-import { EditProfile } from './EditProfile';
-import { useCountriesListRequest, useCurrentUserProfileRequest } from '../../hook';
-import { ApiService } from '../../services';
+import { EditProfile } from "./EditProfile";
+import { useCountriesListRequest, useCurrentUserProfileRequest } from "../../hook";
+import { ApiService } from "../../services";
 
 export interface IFormData {
   countryId?: string;
@@ -39,7 +39,7 @@ export const EditProfileContainer = () => {
   }, [userProfile]);
 
   const onInputChange = useCallback((
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -51,7 +51,7 @@ export const EditProfileContainer = () => {
     try {
       setUpdateProfileLoading(true);await ApiService.updateCurrentUserProfile(formData);
     } catch (err) {
-      console.log('err ', err);
+      console.log("err ", err);
     } finally {
       setUpdateProfileLoading(false);
     }
@@ -68,4 +68,4 @@ export const EditProfileContainer = () => {
       }}
     />
   );
-}
+};

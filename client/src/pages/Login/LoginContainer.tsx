@@ -1,10 +1,10 @@
-import React, { ChangeEvent, FormEvent, useCallback, useEffect, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useCallback, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../hook";
 import { ApiService } from "../../services";
 import { httpStatus } from "../../const";
-import { Login } from './Login';
+import { Login } from "./Login";
 
 export interface ISignInFormData {
   email: string;
@@ -15,20 +15,20 @@ export const LoginContainer = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, signIn } = useAuth();
-  const fromPage = location.state?.from?.pathname || '/';
+  const fromPage = location.state?.from?.pathname || "/";
 
   const [loginLoading, setLoginLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState<ISignInFormData>({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const redirectToFromPage = useCallback(() => {
-    navigate(fromPage, { replace: true })
+    navigate(fromPage, { replace: true });
   }, [ fromPage ]);
 
   useEffect(() => {
-    if (!!user) {
+    if (user) {
       redirectToFromPage();
     }
   }, [user, redirectToFromPage]);
@@ -48,7 +48,7 @@ export const LoginContainer = () => {
         signIn(user, () => redirectToFromPage);
       }
     } catch (err) {
-      console.log('err: ', err)
+      console.log("err: ", err);
     } finally {
       setLoginLoading(false);
     }

@@ -2,6 +2,6 @@ export {
   RequestUserData,
   RequestWithOptionalUserData,
   RequestWithUserData,
-} from './requestExtended.type';
+} from "./requestExtended.type";
 
-export { ExpressMiddlewareFnType } from './expressMiddleware.type';
+export { ExpressMiddlewareFnType } from "./expressMiddleware.type";
