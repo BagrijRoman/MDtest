@@ -1,0 +1,16 @@
+.login-container.container {
+  max-width: 500px;
+
+  .login-form {
+    .form-label {
+      margin-right: auto;
+      display: flex;
+      margin-top: 5px;
+    }
+
+    .login-button {
+      margin-top: 30px;
+      width: 100%;
+    }
+  }
+}

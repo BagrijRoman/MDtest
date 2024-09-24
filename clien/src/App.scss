@@ -1,0 +1,44 @@
+.md {
+  text-align: center;
+
+  .md-header {
+    background-color: #19b16c;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+
+    .md-link {
+      color: #f0164c;
+    }
+  }
+
+  .md-users-list {
+    .list-group {
+      text-align: left;
+      width: 30%;
+    }
+  }
+
+  .md-logo {
+    height: 10vmin;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .md-logo {
+    animation: md-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes md-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
