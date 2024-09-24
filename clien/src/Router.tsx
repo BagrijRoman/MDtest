@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 import { Home, Login, NotFound, User, UsersList } from "./pages";
 import { RequireAuth } from "./hoc/RequireAuth";
 import { ApiService } from './services';

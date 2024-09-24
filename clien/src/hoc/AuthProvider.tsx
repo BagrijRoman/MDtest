@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from 'react';
 export const AuthContext = createContext({
   user: null,
   signIn: (newUser: any, cb?: () => void) => {},
-  signout: (cb?: () => void) => {}
+  signOut: (cb?: () => void) => {}
 });
 
 export const AuthProvider = ({ children }: { children: JSX.Element}) => {
@@ -14,12 +14,12 @@ export const AuthProvider = ({ children }: { children: JSX.Element}) => {
     cb && cb();
   };
 
-  const signout = (cb?: () => void) => {
+  const signOut = (cb?: () => void) => {
     setUser(null);
     cb && cb();
   };
   
-  const value = {user, signIn, signout};
+  const value = {user, signIn, signOut};
 
   return <AuthContext.Provider value={value}>
     {children}

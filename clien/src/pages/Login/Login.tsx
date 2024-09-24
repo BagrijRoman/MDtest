@@ -1,65 +1,28 @@
-import React, { useCallback, useEffect, useState, ChangeEvent, FormEvent } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { ChangeEvent, FormEvent } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 
-import { useAuth } from '../../hook/useAuth';
-import { ApiService } from '../../services';
-import { httpStatus } from "../../const";
+import { ISignInFormData } from './LoginContainer';
+import './login.scss';
 
-interface ISignInFormData {
-  email: string;
-  password: string;
+interface ILoginProps {
+  onSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void>;
+  onDataChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  formData: ISignInFormData;
+  loginLoading: boolean;
 }
 
-// todo decompose
-
-const Login = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { user, signIn } = useAuth();
-  const fromPage = location.state?.from?.pathname || '/';
-
-  const [loginLoading, setLoginLoading] = useState<boolean>(false);
-  const [formData, setFormData] = useState<ISignInFormData>({
-    email: '',
-    password: '',
-  });
-
-  const redirectToFromPage = useCallback(() => {
-    navigate(fromPage, { replace: true })
-  }, [ fromPage ]);
-
-  useEffect(() => {
-    if (!!user) {
-      redirectToFromPage();
-    }
-  }, [user, redirectToFromPage]);
-
-  const onDataChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  }, [formData]);
-
-  const onSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    try {
-      setLoginLoading(true);
-      const { status, user } = await ApiService.login({ email: formData.email, password: formData.password });
-      if (status === httpStatus.OK && user) {
-        signIn(user, () => redirectToFromPage);
-      }
-    } catch (err) {
-      // tot add error notification here
-    } finally {
-      setLoginLoading(false);
-    }
-  }, [formData]);
+export const Login = (props: ILoginProps) => {
+  const {
+    onSubmit,
+    onDataChange,
+    formData,
+    loginLoading,
+  } = props;
 
   return (
-    <Container>
-      <h3>Login </h3>
-      <Form onSubmit={onSubmit}>
+    <Container className="login-container" >
+      <h3 className="login-header-label">Login </h3>
+      <Form onSubmit={onSubmit} className="login-form">
         <Form.Group>
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -89,13 +52,13 @@ const Login = () => {
         <Button
           variant="primary"
           type="submit"
-          disabled={loginLoading}
+          disabled={!!loginLoading}
+          className="login-button"
+          size="sm"
         >
-          {loginLoading ? 'Loading…' : 'Sign In'}
+          {loginLoading ? 'Loading…' : 'Login'}
         </Button>
       </Form>
     </Container>
   );
 };
-
-export default Login;
