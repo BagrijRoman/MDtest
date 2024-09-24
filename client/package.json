@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.3.0",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
+    "buffer": "^6.0.3",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
@@ -50,5 +51,5 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/lodash": "^4.17.9"
   },
-  "proxy": "http://localhost:4000",
+  "proxy": "http://localhost:4000"
 }
