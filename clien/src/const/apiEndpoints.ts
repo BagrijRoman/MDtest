@@ -4,4 +4,6 @@ export const apiEndpoints = {
   refreshToken: "/auth/refresh",
   getAllUsers: "/users/all",
   getUser: "/users/",
+  countries: "/countries",
+  userProfile: "/user/profile",
 };

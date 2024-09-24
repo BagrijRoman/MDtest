@@ -1,17 +1,22 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { EditProfile } from './EditProfile';
+import { useCountriesListRequest, useCurrentUserProfileRequest } from '../../hook';
+import { ApiService } from '../../services';
 
 export interface IFormData {
-  countryId: string;
-  firstName: string;
-  middleName: string;
-  lastName: string;
-  address: string;
-  extraInfo: string;
+  countryId?: string;
+  firstName?: string;
+  middleName?: string;
+  lastName?: string;
+  address?: string;
+  extraInfo?: string;
 }
 
 export const EditProfileContainer = () => {
+  const { countriesList } = useCountriesListRequest();
+  const { userProfile } = useCurrentUserProfileRequest();
+
   const [formData, setFormData] = useState<IFormData>({
     countryId: "",
     firstName: "",
@@ -20,16 +25,18 @@ export const EditProfileContainer = () => {
     address: "",
     extraInfo: "",
   });
-  const [countriesList, setCountriesList] = useState([]);
   const [updateProfileLoading, setUpdateProfileLoading] = useState<boolean>(false);
 
-  const countries = [
-    { code: "US", name: "United States" },
-    { code: "CA", name: "Canada" },
-    { code: "GB", name: "United Kingdom" },
-    { code: "AU", name: "Australia" },
-    // Add more countries as needed
-  ];
+  useEffect(() => {
+    setFormData({
+      countryId: userProfile ? userProfile.country._id : "" ,
+      firstName: userProfile ? userProfile.user.firstName : "",
+      middleName: userProfile ? userProfile.user.middleName : "",
+      lastName: userProfile ? userProfile.user.lastName : "",
+      address: userProfile ? userProfile.address : "",
+      extraInfo: userProfile ? userProfile.extraInfo : "",
+    });
+  }, [userProfile]);
 
   const onInputChange = useCallback((
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -38,12 +45,17 @@ export const EditProfileContainer = () => {
     setFormData({ ...formData, [name]: value });
   }, [formData]);
 
-  const onFormSubmit = useCallback((event: React.FormEvent) => {
+  const onFormSubmit = useCallback(async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(formData);
+
+    try {
+      setUpdateProfileLoading(true);await ApiService.updateCurrentUserProfile(formData);
+    } catch (err) {
+      console.log('err ', err);
+    } finally {
+      setUpdateProfileLoading(false);
+    }
   }, [formData]);
-
-
 
   return (
     <EditProfile
@@ -51,7 +63,8 @@ export const EditProfileContainer = () => {
         onFormSubmit,
         formData,
         onInputChange,
-        countries,
+        countries: countriesList,
+        disabled: updateProfileLoading,
       }}
     />
   );
