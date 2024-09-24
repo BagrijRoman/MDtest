@@ -9,7 +9,6 @@ import {
 } from "../../helpers";
 import { Users } from "../../models";
 import { RequestWithUserData } from "../../types";
-import { logger } from "../../utils";
 
 export const loginController = async (req: RequestWithUserData, res: Response) => {
   try {

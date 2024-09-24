@@ -30,7 +30,7 @@ userRouter.use(requireAuth as ExpressMiddlewareFnType);
  * */
 
 
-userRouter.get('/profile', getUserProfileController as ExpressMiddlewareFnType);
+userRouter.get("/profile", getUserProfileController as ExpressMiddlewareFnType);
 
 /**
  * @openapi
@@ -70,4 +70,4 @@ userRouter.get('/profile', getUserProfileController as ExpressMiddlewareFnType);
  *         description: Internal server error
  * */
 
-userRouter.patch('/profile', updateUserProfileController as ExpressMiddlewareFnType);
+userRouter.patch("/profile", updateUserProfileController as ExpressMiddlewareFnType);

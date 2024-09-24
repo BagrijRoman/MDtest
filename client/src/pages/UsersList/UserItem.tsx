@@ -1,8 +1,8 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import ListGroup from 'react-bootstrap/ListGroup';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import ListGroup from "react-bootstrap/ListGroup";
 
-import { IUserDetails } from '../../types/IUser';
+import { IUserDetails } from "../../types/IUser";
 
 const UserItem = ({ user }: { user: IUserDetails }) => {
   const navigate = useNavigate();
@@ -15,6 +15,6 @@ const UserItem = ({ user }: { user: IUserDetails }) => {
       {userName}
     </ListGroup.Item>
   );
-}
+};
 
 export default UserItem;

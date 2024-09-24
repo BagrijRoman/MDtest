@@ -1,7 +1,7 @@
-import express from 'express';
+import express from "express";
 
-import { requireAuth } from '../middlewares'
-import { getCountriesListController } from '../controllers';
+import { requireAuth } from "../middlewares";
+import { getCountriesListController } from "../controllers";
 import { ExpressMiddlewareFnType } from "../types";
 
 export const countriesRouter = express.Router();
@@ -26,4 +26,4 @@ countriesRouter.use(requireAuth as ExpressMiddlewareFnType);
  *         description: Internal server error
  * */
 
-countriesRouter.get('/', getCountriesListController as ExpressMiddlewareFnType);
+countriesRouter.get("/", getCountriesListController as ExpressMiddlewareFnType);

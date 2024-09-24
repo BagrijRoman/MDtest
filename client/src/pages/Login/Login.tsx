@@ -1,8 +1,8 @@
-import React, { ChangeEvent, FormEvent } from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import React, { ChangeEvent, FormEvent } from "react";
+import { Form, Button, Container } from "react-bootstrap";
 
-import { ISignInFormData } from './LoginContainer';
-import './login.scss';
+import { ISignInFormData } from "./LoginContainer";
+import "./login.scss";
 
 interface ILoginProps {
   onSubmit: (e: FormEvent<HTMLFormElement>) => Promise<void>;
@@ -56,7 +56,7 @@ export const Login = (props: ILoginProps) => {
           className="login-button"
           size="sm"
         >
-          {loginLoading ? 'Loading…' : 'Login'}
+          {loginLoading ? "Loading…" : "Login"}
         </Button>
       </Form>
     </Container>

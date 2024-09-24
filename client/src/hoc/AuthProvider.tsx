@@ -1,9 +1,9 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from "react";
 
 export const AuthContext = createContext({
   user: null,
-  signIn: (newUser: any, cb?: () => void) => {},
-  signOut: (cb?: () => void) => {}
+  signIn: () => {},
+  signOut: () => {},
 });
 
 export const AuthProvider = ({ children }: { children: JSX.Element}) => {
@@ -23,5 +23,5 @@ export const AuthProvider = ({ children }: { children: JSX.Element}) => {
 
   return <AuthContext.Provider value={value}>
     {children}
-  </AuthContext.Provider>
-}
+  </AuthContext.Provider>;
+};

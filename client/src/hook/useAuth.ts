@@ -1,6 +1,6 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 
-import { AuthContext } from '../hoc/AuthProvider';
+import { AuthContext } from "../hoc/AuthProvider";
 
 export const useAuth = () => {
   return useContext<any>(AuthContext);

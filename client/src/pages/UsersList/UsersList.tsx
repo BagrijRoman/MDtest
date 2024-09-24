@@ -1,9 +1,9 @@
-import React from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
+import React from "react";
+import ListGroup from "react-bootstrap/ListGroup";
 
-import UserItem from './UserItem';
+import UserItem from "./UserItem";
 
-import useAllUsers from '../../hook/useAllUsers';
+import useAllUsers from "../../hook/useAllUsers";
 
 const UsersList = () => {
   const users = useAllUsers();
@@ -18,6 +18,6 @@ const UsersList = () => {
       )}
     </div>
   );
-}
+};
 
 export default UsersList;

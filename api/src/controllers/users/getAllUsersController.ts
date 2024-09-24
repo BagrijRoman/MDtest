@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 import { logger } from "../../utils";
-import { UserDetails } from '../../models';
+import { UserDetails } from "../../models";
 import { handleApiError } from "../../helpers";
 import { STATUS_CODES } from "../../const";
 
@@ -19,7 +19,7 @@ const getUsersData = async () => {
       throw err;
     }
   }
-}
+};
 
 export const getAllUsersController = async (req: Request, res: Response) => {
   try {

@@ -3,7 +3,7 @@ import { Response } from "express";
 import { RequestWithUserData } from "../../types";
 import { handleApiError } from "../../helpers";
 import { STATUS_CODES } from "../../const";
-import { getUserProfileDetails } from './helpers';
+import { getUserProfileDetails } from "./helpers";
 
 export const getUserProfileController = async (req: RequestWithUserData, res: Response) => {
   try {

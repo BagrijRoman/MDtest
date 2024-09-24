@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
-import { MODEL_DB_NAMES } from '../const';
+import { MODEL_DB_NAMES } from "../const";
 
 const userDetailSchema = new Schema({
   user: { type: Schema.ObjectId, required: true, unique: true, ref: MODEL_DB_NAMES.USERS },

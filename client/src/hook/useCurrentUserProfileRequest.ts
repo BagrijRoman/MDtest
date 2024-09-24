@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import { ApiService} from '../services';
+import { ApiService} from "../services";
 
 interface IUserProfile {
   country: { _id: string },
@@ -20,7 +20,7 @@ export const useCurrentUserProfileRequest = () => {
     const getUserProfile = async () => {
       const { data } = await ApiService.getCurrentUserProfile();
       setUserProfile(data);
-    }
+    };
 
     getUserProfile();
   }, []);
