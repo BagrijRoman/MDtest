@@ -3,6 +3,7 @@ export const VALIDATOR_RULES = {
   password: "required|minLength:5|maxLength:50",
   firstName: "required|minLength:3|maxLength:50",
   lastName: "required|minLength:3|maxLength:50",
+
   optionalName: "minLength:3|maxLength:50",
   middleName: "minLength:3|maxLength:50",
 
