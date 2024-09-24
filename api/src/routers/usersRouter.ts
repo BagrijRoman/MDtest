@@ -1,7 +1,7 @@
 import express from "express";
 
-// import { ExpressMiddlewareFnType } from "../types";
-// import { requireAuth } from "../middlewares";
+import { ExpressMiddlewareFnType } from "../types";
+import { requireAuth } from "../middlewares";
 import {
   getAllUsersController,
   getUserController,
@@ -9,7 +9,7 @@ import {
 
 export const usersRouter = express.Router();
 
-// usersRouter.use(requireAuth as ExpressMiddlewareFnType);
+usersRouter.use(requireAuth as ExpressMiddlewareFnType);
 
 /**
  * @openapi
@@ -30,7 +30,7 @@ export const usersRouter = express.Router();
  * */
 
 
-usersRouter.get('/all', getAllUsersController);
+usersRouter.get('/all', getAllUsersController as ExpressMiddlewareFnType);
 
 /**
  * @openapi
@@ -51,4 +51,4 @@ usersRouter.get('/all', getAllUsersController);
  * */
 
 
-usersRouter.get('/:id', getUserController);
+usersRouter.get('/:id', getUserController as ExpressMiddlewareFnType);

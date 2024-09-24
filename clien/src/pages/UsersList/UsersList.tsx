@@ -11,7 +11,7 @@ const UsersList = () => {
   return (
     <div className="md-users-list">
       <h4>Users List:</h4>
-      {!!users.length && (
+      {!!users?.length && (
         <ListGroup>
           {users.map(user => <UserItem key={user._id} user={user} />)}
         </ListGroup>

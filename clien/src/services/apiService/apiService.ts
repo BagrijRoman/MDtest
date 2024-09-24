@@ -13,12 +13,12 @@ class ApiService extends ApiBase {
     method: requestMethods.GET,
   });
 
-  getAllUsers = async () => this.request({
+  getAllUsers = async () => this.requestWithAuth({
     url: apiEndpoints.getAllUsers,
     method: requestMethods.GET,
   });
 
-  getUser = async (userId: string) => this.request({
+  getUser = async (userId: string) => this.requestWithAuth({
     url: `${apiEndpoints.getUser}${userId}`,
     method: requestMethods.GET,
   });
