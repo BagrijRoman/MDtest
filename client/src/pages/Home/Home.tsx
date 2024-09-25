@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div>
-      <p>Hello, { user ? user.name : "User" }!</p>
+      <p>Hello, { user ? user.firstName : "User" }!</p>
       {user ? <div>
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
